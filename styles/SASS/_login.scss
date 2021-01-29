@@ -1,0 +1,27 @@
+#login {
+  display: none;
+  // ! change the nav colors for li and a
+  nav ul li:nth-child(1) {
+    border-top: 0.25rem solid $yellow;
+    border-bottom: 0.25rem solid $yellow;
+    & a {
+      color: $blue;
+    }
+  }
+  @include flex(center, center, column);
+  form {
+    @include flex(space-between, center, row);
+    flex-grow: 2;
+    color: $yellow;
+    font-size: 1.9rem;
+  }
+  .text-wrap {
+    @include flex(center, center, column);
+    width: 50%;
+    flex-grow: 1;
+    padding: 10rem;
+  }
+}
+.login-form > button:nth-child(2) {
+  margin-bottom: 8rem;
+}

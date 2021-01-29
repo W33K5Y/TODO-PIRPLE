@@ -18,16 +18,20 @@
     <title>TODO APP</title>
   </head>
   <body>
-    <section id="start" class="display-none">
+    <section id="start">
       <header class="header-start">
-        <h1>
+        <h1 class="h1-b">
           THE TODO <br />
           APP
         </h1>
         <nav class="nav-start">
           <ul>
-            <li class="start-li"><a href="#login">LOGIN</a></li>
-            <li class="start-li"><a href="#sign-up">SIGN UP</a></li>
+            <li class="start-li">
+              <a id="login-start-b" href="#login">LOGIN</a>
+            </li>
+            <li class="start-li">
+              <a id="sign-up-start-b" href="#sign-up">SIGN UP</a>
+            </li>
           </ul>
         </nav>
       </header>
@@ -53,15 +57,17 @@
     </section>
     <section id="sign-up">
       <header class="header-sign-up">
-        <h1>
+        <h1 class="h1-b">
           THE TODO <br />
           APP
         </h1>
         <nav class="nav-sign-up">
           <ul>
-            <li class="sign-up-li"><a href="#login">LOGIN</a></li>
             <li class="sign-up-li">
-              <a id="sign-up-text" href="#sign-up">SIGN UP</a>
+              <a id="login-sign-up-b" href="#login">LOGIN</a>
+            </li>
+            <li class="sign-up-li">
+              <a id="sign-up-sign-up-b" href="#sign-up">SIGN UP</a>
             </li>
           </ul>
         </nav>
@@ -85,9 +91,46 @@
             <input id="pass" type="password" required name="password" />
           </div>
         </div>
-        <button value="Send" type="submit">SIGN UP</button>
+        <div class="submit-container">
+          <button value="Send" type="submit">SIGN UP</button>
+          <div class="submit-wrap">
+            <input type="radio" id="terms" required />
+            <label for="terms">I agree to Terms and Conditions</label>
+          </div>
+        </div>
       </form>
     </section>
-    <script src="" async defer></script>
+    <section id="login" class="display-none">
+      <header class="header-login">
+        <h1 class="h1-b">
+          THE TODO <br />
+          APP
+        </h1>
+        <nav class="nav-login">
+          <ul>
+            <li class="login-li">
+              <a id="login-login-b" href="#login">LOGIN</a>
+            </li>
+            <li class="login-li">
+              <a id="login-sign-up-b" href="#login">SIGN UP</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <form class="login-form sign-up-form">
+        <div class="text-wrap">
+          <div class="email-form">
+            <label for="email">Email:</label>
+            <input id="email" type="email" required name="email" />
+          </div>
+          <div class="password-form">
+            <label for="pass">Password:</label>
+            <input id="pass" type="password" required name="password" />
+          </div>
+        </div>
+        <button value="Send" type="submit">LOG IN</button>
+      </form>
+    </section>
+    <script src="./app.js" async defer></script>
   </body>
 </html>

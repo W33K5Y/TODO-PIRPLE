@@ -1,4 +1,8 @@
+// ! DISPLAY NONE FOR BUILDING PURPOSES
 #sign-up {
+  display: flex;
+}
+section:nth-child(2) {
   // ! change the nav colors for li and a
   li:nth-child(2) {
     border-top: 0.25rem solid $yellow;
@@ -55,4 +59,19 @@
     border: none;
     cursor: pointer;
   }
+}
+
+// ! radio
+.submit-container {
+  @include flex(space-around, center, column);
+  font-size: 1.2rem;
+  font-family: "Poppins-Reg", sans-serif;
+  height: 100%;
+}
+.submit-wrap {
+  height: 6rem;
+  margin-top: 2rem;
+}
+#terms {
+  height: 1.5rem;
 }

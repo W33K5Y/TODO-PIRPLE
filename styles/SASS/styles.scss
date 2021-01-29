@@ -18,6 +18,7 @@ $titleShadow: 1px 1px 2px $lightYellow;
 @import "global";
 @import "start";
 @import "sign-up";
+@import "login";
 
 // ! Media
 // * =================  START ================ * //
@@ -71,18 +72,82 @@ $titleShadow: 1px 1px 2px $lightYellow;
 }
 // * =================  SIGN-UP ================ * //
 @media screen and (max-width: 1082px) {
+  html {
+    font-size: 50%;
+  }
+  body {
+    contain: unset;
+  }
   #sign-up form {
     flex-direction: column;
   }
   #sign-up .text-wrap {
     width: 100%;
   }
+  .submit-container {
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 5rem;
+    width: 45vw;
+  }
 }
 @media screen and (max-width: 872px) {
+  html {
+    font-size: 45%;
+  }
+
+  #sign-up > form:nth-child(2) {
+    flex-wrap: wrap;
+  }
   .sign-up-form .name-form,
   .sign-up-form .email-form,
   .sign-up-form .password-form {
     display: block;
     text-align: left;
   }
+  // ! fix this after build
+  #sign-up {
+    justify-content: stretch;
+    .text-wrap {
+      padding: 0;
+      margin-bottom: 5rem;
+      max-width: 90%;
+    }
+    .submit-container {
+      flex-direction: column;
+      width: 58vw;
+    }
+  }
+  #sign-up form {
+    flex-grow: 0;
+  }
+
+  .sign-up-form > button:nth-child(2) {
+    margin-bottom: 2.5rem;
+  }
+}
+// * =================  LOGIN ================ * //
+
+@media screen and (max-width: 1082px) {
+  #login form {
+    flex-direction: column;
+    .text-wrap {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 872px) {
+  #login .text-wrap {
+    padding: 0;
+  }
+  .sign-up-form .name-form,
+  .sign-up-form .email-form,
+  .sign-up-form .password-form {
+    width: 100%;
+    width: 90%;
+  }
+}
+#login,
+#sign-up {
+  display: none;
 }
