@@ -36,6 +36,7 @@ section {
 }
 
 h1 {
+  cursor: pointer;
   font-size: 5.2rem;
   letter-spacing: 3.37rem;
   color: #f9e492;
@@ -74,6 +75,11 @@ nav ul li {
   border-bottom: 0.25rem solid #4f76ff;
   border-radius: 10%;
   text-align: center;
+  transition: all 0.5s ease;
+}
+nav ul li:hover {
+  border-top: 0.25rem solid #f9e492;
+  border-bottom: 0.25rem solid #f9e492;
 }
 
 nav a {
@@ -81,6 +87,11 @@ nav a {
   font-size: 2.1rem;
   letter-spacing: 1.15rem;
   text-decoration: none;
+  transition: all 0.25s ease;
+}
+nav a:hover {
+  color: #4f76ff;
+  letter-spacing: 1.2rem;
 }
 
 #sign-up-sign-up-b {
@@ -109,6 +120,7 @@ nav a {
 
 .yellow-block-wrap {
   align-items: flex-end;
+  min-width: 55vw;
 }
 
 .cheker-block-wrap {
@@ -128,7 +140,7 @@ nav a {
 
 .cheker-block {
   height: 2.25rem;
-  width: 5%;
+  width: 10%;
   border-radius: 1rem;
   margin: 1.5rem;
   background-color: #7afb87;
@@ -137,8 +149,8 @@ nav a {
   background-color: #fb7a82;
 }
 
-.display-none {
-  display: none;
+.list-design-wrap {
+  pointer-events: none;
 }
 
 #sign-up {
@@ -266,10 +278,6 @@ section:nth-child(2) .text-wrap {
   padding: 10rem;
 }
 
-.login-form > button:nth-child(2) {
-  margin-bottom: 8rem;
-}
-
 @media screen and (max-width: 1120px) {
   header {
     padding: 2rem;
@@ -390,16 +398,15 @@ section:nth-child(2) .text-wrap {
   }
 }
 @media screen and (max-width: 1082px) {
+  .login-form > button:nth-child(2) {
+    margin-bottom: 8rem;
+  }
+
   #login form {
     flex-direction: column;
   }
   #login form .text-wrap {
     width: 100%;
-  }
-}
-@media screen and (max-width: 872px) {
-  #login .text-wrap {
-    padding: 0;
   }
 
   .sign-up-form .name-form,
@@ -407,6 +414,11 @@ section:nth-child(2) .text-wrap {
 .sign-up-form .password-form {
     width: 100%;
     width: 90%;
+  }
+}
+@media screen and (max-width: 872px) {
+  #login .text-wrap {
+    padding: 0;
   }
 }
 #login,

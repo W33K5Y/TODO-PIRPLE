@@ -129,22 +129,25 @@ $titleShadow: 1px 1px 2px $lightYellow;
 // * =================  LOGIN ================ * //
 
 @media screen and (max-width: 1082px) {
+  .login-form > button:nth-child(2) {
+    margin-bottom: 8rem;
+  }
   #login form {
     flex-direction: column;
     .text-wrap {
       width: 100%;
     }
   }
-}
-@media screen and (max-width: 872px) {
-  #login .text-wrap {
-    padding: 0;
-  }
   .sign-up-form .name-form,
   .sign-up-form .email-form,
   .sign-up-form .password-form {
     width: 100%;
     width: 90%;
+  }
+}
+@media screen and (max-width: 872px) {
+  #login .text-wrap {
+    padding: 0;
   }
 }
 #login,

@@ -18,6 +18,7 @@
 }
 .yellow-block-wrap {
   align-items: flex-end;
+  min-width: 55vw;
 }
 .cheker-block-wrap {
   align-items: flex-start;
@@ -34,7 +35,7 @@
 }
 .cheker-block {
   height: 2.25rem;
-  width: 5%;
+  width: 10%;
   border-radius: 1rem;
   margin: 1.5rem;
   background-color: $green;
@@ -44,6 +45,8 @@
   }
 }
 
-.display-none {
-  display: none;
+// ? This makes the list design unclickables -
+// ? - when the section is scaled down and the wrap spills upwards
+.list-design-wrap {
+  pointer-events: none;
 }

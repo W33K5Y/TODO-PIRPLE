@@ -34,6 +34,7 @@ section {
 }
 
 h1 {
+  cursor: pointer;
   font-size: 5.2rem;
   letter-spacing: 3.37rem;
   color: $yellow;
@@ -62,6 +63,11 @@ nav ul {
     border-bottom: 0.25rem solid $blue;
     border-radius: 10%;
     text-align: center;
+    transition: all 0.5s ease;
+    &:hover {
+      border-top: 0.25rem solid $yellow;
+      border-bottom: 0.25rem solid $yellow;
+    }
   }
 }
 nav a {
@@ -69,6 +75,11 @@ nav a {
   font-size: 2.1rem;
   letter-spacing: 1.15rem;
   text-decoration: none;
+  transition: all 0.25s ease;
+  &:hover {
+    color: $blue;
+    letter-spacing: 1.2rem;
+  }
 }
 #sign-up-sign-up-b {
   color: $blue;
