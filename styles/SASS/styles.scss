@@ -1,0 +1,88 @@
+// !Variables
+$yellow: #f9e492;
+$lightYellow: #fff8dc;
+$blue: #4f76ff;
+$red: #fb7a82;
+$green: #7afb87;
+$black: #191919;
+$titleShadow: 1px 1px 2px $lightYellow;
+// ! Mixins
+
+@mixin flex($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+// ! IMPORT CSS FILES
+@import "global";
+@import "start";
+@import "sign-up";
+
+// ! Media
+// * =================  START ================ * //
+@media screen and (max-width: 1120px) {
+  header {
+    padding: 2rem;
+    height: 100%;
+    flex-direction: column;
+  }
+  nav ul {
+    height: 30vh;
+    @include flex(center, center, column);
+  }
+  ul li {
+    margin: 2rem;
+  }
+  .yellow-block-wrap,
+  .cheker-block-wrap {
+    flex: 2 1 50vw;
+  }
+  .yellow-block-wrap {
+    min-width: 52vw;
+  }
+  .cheker-block {
+    height: 1.95rem;
+    width: 12%;
+  }
+  .cheker-block-wrap {
+    min-width: 20vw;
+  }
+}
+@media screen and (max-width: 874px) {
+  h1 {
+    font-size: 3.2rem;
+    letter-spacing: 1.385;
+    br {
+      display: inline;
+    }
+  }
+  .list-design-wrap {
+    position: absolute;
+    top: 128px;
+    left: 36px;
+  }
+}
+@media screen and (max-width: 473px) {
+  h1 {
+    font-size: 2.8rem;
+    letter-spacing: 1.185rem;
+  }
+}
+// * =================  SIGN-UP ================ * //
+@media screen and (max-width: 1082px) {
+  #sign-up form {
+    flex-direction: column;
+  }
+  #sign-up .text-wrap {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 872px) {
+  .sign-up-form .name-form,
+  .sign-up-form .email-form,
+  .sign-up-form .password-form {
+    display: block;
+    text-align: left;
+  }
+}

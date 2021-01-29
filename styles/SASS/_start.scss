@@ -1,0 +1,49 @@
+// ! list design
+
+.list-design-wrap {
+  @include flex(center, center, row);
+  height: 100%;
+  width: 100%;
+  margin: 0 auto 14rem;
+  padding: 10rem;
+}
+
+.yellow-block-wrap,
+.cheker-block-wrap {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  flex: 1 2 50vw;
+}
+.yellow-block-wrap {
+  align-items: flex-end;
+}
+.cheker-block-wrap {
+  align-items: flex-start;
+  flex-shrink: 2;
+}
+.yellow-block {
+  width: 90%;
+  background-color: $yellow;
+  height: 2.25vh;
+  border-radius: 1rem;
+  margin: 1.5rem;
+  padding: 1rem;
+  flex-shrink: 2;
+}
+.cheker-block {
+  height: 2.25rem;
+  width: 5%;
+  border-radius: 1rem;
+  margin: 1.5rem;
+  background-color: $green;
+  &:nth-child(4),
+  &:nth-child(6) {
+    background-color: $red;
+  }
+}
+
+.display-none {
+  display: none;
+}

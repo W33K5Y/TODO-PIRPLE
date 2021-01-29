@@ -1,0 +1,58 @@
+#sign-up {
+  // ! change the nav colors for li and a
+  li:nth-child(2) {
+    border-top: 0.25rem solid $yellow;
+    border-bottom: 0.25rem solid $yellow;
+  }
+
+  @include flex(center, center, column);
+  form {
+    @include flex(space-between, center, row);
+    flex-grow: 2;
+    color: $yellow;
+    font-size: 1.9rem;
+  }
+  .text-wrap {
+    @include flex(center, center, column);
+    width: 50%;
+    flex-grow: 1;
+    padding: 10rem;
+  }
+}
+
+.sign-up-form {
+  width: 75%;
+  .name-form,
+  .email-form,
+  .password-form {
+    font-family: "Poppins-Reg", sans-serif;
+    letter-spacing: 0.3rem;
+    padding: 1.5rem;
+    text-align: center;
+    width: 100%;
+    @include flex(space-around, center, row);
+  }
+  input {
+    flex: 1 1 20rem;
+    background-color: $lightYellow;
+    height: 4rem;
+    border: none;
+    border-radius: 1rem;
+    width: 100%;
+  }
+  label {
+    flex: 1 1 20rem;
+  }
+  button {
+    font-family: "Poppins-med";
+    height: 10rem;
+    font-size: 2.8rem;
+    letter-spacing: 0.3rem;
+    width: 20rem;
+    border-radius: 1rem;
+    background-color: $blue;
+    color: $yellow;
+    border: none;
+    cursor: pointer;
+  }
+}

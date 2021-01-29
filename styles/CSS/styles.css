@@ -1,0 +1,291 @@
+@font-face {
+  font-family: "Poppins-Med";
+  src: url(../../fonts/Poppins-Medium.ttf);
+}
+@font-face {
+  font-family: "Poppins-SemiB";
+  src: url(../../fonts/Poppins-SemiBold.ttf);
+}
+@font-face {
+  font-family: "Poppins-Reg";
+  src: url(../../fonts/Poppins-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins-Med";
+}
+
+body {
+  background-color: #191919;
+  max-height: 100vh;
+  contain: content;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 5.2rem;
+  letter-spacing: 3.37rem;
+  color: #f9e492;
+  text-shadow: 1px 1px 2px #fff8dc;
+  font-family: "Poppins-SemiB";
+  text-align: center;
+}
+h1 br {
+  display: none;
+}
+
+header {
+  height: 16.65vh;
+  flex-wrap: wrap;
+}
+
+header,
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  width: 30vw;
+  flex-wrap: nowrap;
+}
+nav ul li {
+  list-style: none;
+  border-top: 0.25rem solid #4f76ff;
+  border-bottom: 0.25rem solid #4f76ff;
+  border-radius: 10%;
+}
+
+nav a {
+  color: #f9e492;
+  font-size: 2.1rem;
+  letter-spacing: 1.15rem;
+  text-decoration: none;
+}
+
+#sign-up-text {
+  color: #4f76ff;
+}
+
+.list-design-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto 14rem;
+  padding: 10rem;
+}
+
+.yellow-block-wrap,
+.cheker-block-wrap {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  flex: 1 2 50vw;
+}
+
+.yellow-block-wrap {
+  align-items: flex-end;
+}
+
+.cheker-block-wrap {
+  align-items: flex-start;
+  flex-shrink: 2;
+}
+
+.yellow-block {
+  width: 90%;
+  background-color: #f9e492;
+  height: 2.25vh;
+  border-radius: 1rem;
+  margin: 1.5rem;
+  padding: 1rem;
+  flex-shrink: 2;
+}
+
+.cheker-block {
+  height: 2.25rem;
+  width: 5%;
+  border-radius: 1rem;
+  margin: 1.5rem;
+  background-color: #7afb87;
+}
+.cheker-block:nth-child(4), .cheker-block:nth-child(6) {
+  background-color: #fb7a82;
+}
+
+.display-none {
+  display: none;
+}
+
+#sign-up {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#sign-up li:nth-child(2) {
+  border-top: 0.25rem solid #f9e492;
+  border-bottom: 0.25rem solid #f9e492;
+}
+#sign-up li:nth-child(2) a:nth-child(2) {
+  color: #4f76ff;
+}
+#sign-up form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-grow: 2;
+  color: #f9e492;
+  font-size: 1.9rem;
+}
+#sign-up .text-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  flex-grow: 1;
+  padding: 10rem;
+}
+
+.sign-up-form {
+  width: 75%;
+}
+.sign-up-form .name-form,
+.sign-up-form .email-form,
+.sign-up-form .password-form {
+  font-family: "Poppins-Reg", sans-serif;
+  letter-spacing: 0.3rem;
+  padding: 1.5rem;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+.sign-up-form input {
+  flex: 1 1 20rem;
+  background-color: #fff8dc;
+  height: 4rem;
+  border: none;
+  border-radius: 1rem;
+  width: 100%;
+}
+.sign-up-form label {
+  flex: 1 1 20rem;
+}
+.sign-up-form button {
+  font-family: "Poppins-med";
+  height: 10rem;
+  font-size: 2.8rem;
+  letter-spacing: 0.3rem;
+  width: 20rem;
+  border-radius: 1rem;
+  background-color: #4f76ff;
+  color: #f9e492;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1120px) {
+  header {
+    padding: 2rem;
+    height: 100%;
+    flex-direction: column;
+  }
+
+  nav ul {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  ul li {
+    margin: 2rem;
+  }
+
+  .yellow-block-wrap,
+.cheker-block-wrap {
+    flex: 2 1 50vw;
+  }
+
+  .yellow-block-wrap {
+    min-width: 52vw;
+  }
+
+  .cheker-block {
+    height: 1.95rem;
+    width: 12%;
+  }
+
+  .cheker-block-wrap {
+    min-width: 20vw;
+  }
+}
+@media screen and (max-width: 874px) {
+  h1 {
+    font-size: 3.2rem;
+    letter-spacing: 1.385;
+  }
+  h1 br {
+    display: inline;
+  }
+
+  .list-design-wrap {
+    position: absolute;
+    top: 128px;
+    left: 36px;
+  }
+}
+@media screen and (max-width: 473px) {
+  h1 {
+    font-size: 2.8rem;
+    letter-spacing: 1.185rem;
+  }
+}
+@media screen and (max-width: 1082px) {
+  #sign-up form {
+    flex-direction: column;
+  }
+
+  #sign-up .text-wrap {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 872px) {
+  .sign-up-form .name-form,
+.sign-up-form .email-form,
+.sign-up-form .password-form {
+    display: block;
+    text-align: left;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

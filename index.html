@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="An app designed for organised to-do lists"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index,follow" />
+    <link rel="icon" href="./icons/iconmonstr-task-1.svg" />
+    <link rel="stylesheet" href="./styles/CSS/styles.css" />
+    <title>TODO APP</title>
+  </head>
+  <body>
+    <section id="start" class="display-none">
+      <header class="header-start">
+        <h1>
+          THE TODO <br />
+          APP
+        </h1>
+        <nav class="nav-start">
+          <ul>
+            <li class="start-li"><a href="#login">LOGIN</a></li>
+            <li class="start-li"><a href="#sign-up">SIGN UP</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="list-design-wrap">
+        <div class="yellow-block-wrap">
+          <div class="yellow-block"></div>
+          <div class="yellow-block"></div>
+          <div class="yellow-block"></div>
+          <div class="yellow-block"></div>
+          <div class="yellow-block"></div>
+          <div class="yellow-block"></div>
+        </div>
+        <div class="cheker-block-wrap">
+          <div class="cheker-block"></div>
+          <div class="cheker-block"></div>
+          <div class="cheker-block"></div>
+          <div class="cheker-block"></div>
+          <div class="cheker-block"></div>
+          <div class="cheker-block"></div>
+        </div>
+      </div>
+    </section>
+    <section id="sign-up">
+      <header class="header-sign-up">
+        <h1>
+          THE TODO <br />
+          APP
+        </h1>
+        <nav class="nav-sign-up">
+          <ul>
+            <li class="sign-up-li"><a href="#login">LOGIN</a></li>
+            <li class="sign-up-li">
+              <a id="sign-up-text" href="#sign-up">SIGN UP</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <form class="sign-up-form">
+        <div class="text-wrap">
+          <div class="name-form">
+            <label for="username">First Name:</label>
+            <input id="username" type="text" name="username" required />
+          </div>
+          <div class="name-form">
+            <label for="username">Last Name:</label>
+            <input id="username" type="text" name="username" required />
+          </div>
+          <div class="email-form">
+            <label for="email">Email:</label>
+            <input id="email" type="email" required name="email" />
+          </div>
+          <div class="password-form">
+            <label for="pass">Password:</label>
+            <input id="pass" type="password" required name="password" />
+          </div>
+        </div>
+        <button value="Send" type="submit">SIGN UP</button>
+      </form>
+    </section>
+    <script src="" async defer></script>
+  </body>
+</html>
