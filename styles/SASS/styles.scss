@@ -24,6 +24,7 @@ $nav: 1.999rem;
 @import "sign-up";
 @import "login";
 @import "lobby";
+@import "todo";
 
 // ! Media
 // * =================  START ================ * //
@@ -176,6 +177,18 @@ $nav: 1.999rem;
 
 #login,
 #sign-up,
-#lobby {
+#lobby,
+#todo {
   display: none;
+}
+// * TODO
+@media screen and (max-width: 289px) {
+  .todo-button {
+    position: absolute;
+    top: 4.4px;
+    right: 0;
+  }
+  body > form:nth-child(2) {
+    position: relative;
+  }
 }
