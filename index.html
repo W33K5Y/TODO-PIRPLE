@@ -75,12 +75,12 @@
       <form class="sign-up-form">
         <div class="text-wrap">
           <div class="name-form">
-            <label for="username">First Name:</label>
-            <input id="username" type="text" name="username" required />
+            <label for="userFirstName">First Name:</label>
+            <input id="userFirstName" type="text" name="userFirstName" required />
           </div>
           <div class="name-form">
-            <label for="username">Last Name:</label>
-            <input id="username" type="text" name="username" required />
+            <label for="userLastName">Last Name:</label>
+            <input id="userLastName" type="text" name="userLastName" required />
           </div>
           <div class="email-form">
             <label for="email">Email:</label>
@@ -88,11 +88,11 @@
           </div>
           <div class="password-form">
             <label for="pass">Password:</label>
-            <input id="pass" type="password" required name="password" />
+            <input id="password" type="password" required name="password" />
           </div>
         </div>
         <div class="submit-container">
-          <button value="Send" type="submit">SIGN UP</button>
+          <button id="submit-sign-up" value="Send" type="submit">SIGN UP</button>
           <div class="submit-wrap">
             <input type="radio" id="terms" required />
             <label for="terms">I agree to Terms and Conditions</label>
@@ -120,18 +120,46 @@
       <form class="login-form sign-up-form">
         <div class="text-wrap">
           <div class="email-form">
-            <label for="email">Email:</label>
-            <input id="email" type="email" required name="email" />
+            <label for="loginEmail">Email:</label>
+            <input id="loginEmail" type="email" required name="email" />
+            <img id="warning"src="./icons/iconmonstr-warning-7.svg" alt="">
+            <p id="error-message">email address or password entered incorectly</p>
           </div>
           <div class="password-form">
-            <label for="pass">Password:</label>
-            <input id="pass" type="password" required name="password" />
+            <label for="loginPassword">Password:</label>
+            <input id="loginPassword" type="password" required name="password" />
           </div>
         </div>
-        <button value="Send" type="submit">LOG IN</button>
+        <button id="submit-login" value="Send" type="submit">LOG IN</button>
       </form>
     </section>
-    <section id="lobby"></section>
+    <section id="lobby">
+      <header class="lobby-header">
+        <h1>
+          TODO's
+        </h1>
+        <nav class="lobby-nav">
+          <ul>
+            <li class="start-li">
+              <a id="logout-lobby-b" href="#logout">LOG-OUT</a>          
+          </ul>
+        </nav>
+      </header>
+      <div class="looby-container">
+        <div class="top-lobby">
+        <h2>Create New List</h2>
+        <div class="green-block"></div>
+      </div>
+      <div class="bottom-lobby">
+        <h3>My Lists</h3>
+        <hr>
+        <div class="my-lists">
+          <p>Nothing currently recorded <span>||</span><br class="display-none"> Tap the green icon to begin creating your very own TODO!</p>
+        </div>
+      </div>
+      </div>
+      </div>
+    </section>
     <script src="./app.js" async defer></script>
   </body>
 </html>

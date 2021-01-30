@@ -10,6 +10,10 @@
   font-family: "Poppins-Reg";
   src: url(../../fonts/Poppins-Regular.ttf);
 }
+@font-face {
+  font-family: "Poppins-XLight";
+  src: url(../../fonts/Poppins-ExtraLight.ttf);
+}
 * {
   margin: 0;
   padding: 0;
@@ -35,16 +39,18 @@ section {
   flex-direction: column;
 }
 
-h1 {
+h1,
+h2 {
   cursor: pointer;
-  font-size: 5.2rem;
+  font-size: 5.653rem;
   letter-spacing: 3.37rem;
   color: #f9e492;
   text-shadow: 1px 1px 2px #fff8dc;
   font-family: "Poppins-SemiB";
   text-align: center;
 }
-h1 br {
+h1 br,
+h2 br {
   display: none;
 }
 
@@ -84,7 +90,7 @@ nav ul li:hover {
 
 nav a {
   color: #f9e492;
-  font-size: 2.1rem;
+  font-size: 1.999rem;
   letter-spacing: 1.15rem;
   text-decoration: none;
   transition: all 0.25s ease;
@@ -96,6 +102,27 @@ nav a:hover {
 
 #sign-up-sign-up-b {
   color: #4f76ff;
+}
+
+input {
+  font-size: 2.1rem;
+  color: #191919;
+  padding-left: 0.5rem;
+}
+
+#submit-login,
+#submit-sign-up {
+  transition: 0.5s all ease;
+}
+
+#submit-login:hover,
+#submit-sign-up:hover {
+  background-color: #1c4eff;
+  color: #f6d862;
+}
+
+#start {
+  contain: content;
 }
 
 .list-design-wrap {
@@ -120,7 +147,7 @@ nav a:hover {
 
 .yellow-block-wrap {
   align-items: flex-end;
-  min-width: 55vw;
+  min-width: 60vw;
 }
 
 .cheker-block-wrap {
@@ -140,7 +167,8 @@ nav a:hover {
 
 .cheker-block {
   height: 2.25rem;
-  width: 10%;
+  width: 12%;
+  flex: 0 2 22px;
   border-radius: 1rem;
   margin: 1.5rem;
   background-color: #7afb87;
@@ -278,6 +306,109 @@ section:nth-child(2) .text-wrap {
   padding: 10rem;
 }
 
+.email-form {
+  position: relative;
+}
+
+#warning {
+  position: absolute;
+  right: 24px;
+  display: inline-block;
+  display: none;
+}
+
+#error-message {
+  font-size: 1rem;
+  position: absolute;
+  bottom: -24px;
+  right: 0;
+  padding: 2rem;
+  color: #f73e42;
+  letter-spacing: 0.2rem;
+  display: none;
+}
+
+#lobby {
+  justify-content: flex-start;
+}
+
+.lobby-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.top-lobby {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  padding: 5rem;
+  margin: 5rem 0 0 2rem;
+}
+.top-lobby h2 {
+  font-size: 3.998rem;
+  letter-spacing: 2.7rem;
+  font-family: "Poppins-Reg", sans-serif;
+  flex: 0 1 auto;
+  margin-right: 5rem;
+}
+.top-lobby .green-block {
+  height: 3rem;
+  background-color: #7afb87;
+  border-radius: 1rem;
+  flex: 1 2 auto;
+  max-width: 7rem;
+}
+
+.bottom-lobby {
+  height: 100%;
+  padding: 10rem;
+}
+.bottom-lobby h3 {
+  font-size: 2.827rem;
+  color: #f9e492;
+  letter-spacing: 2.1rem;
+}
+.bottom-lobby hr {
+  color: #fff8dc;
+  opacity: 0.2;
+  margin-top: 0.2rem;
+  box-shadow: 1px 1px 2px #fff8dc;
+}
+.bottom-lobby .my-lists p {
+  color: #fff8dc;
+  font-size: 1.999rem;
+  font-family: "Poppins-XLight";
+}
+.bottom-lobby .my-lists p span {
+  margin: 0 2rem;
+}
+.bottom-lobby .my-lists {
+  height: 100%;
+  margin-top: 5rem;
+  padding: 5rem;
+}
+
+.lobby-header {
+  flex-direction: column;
+  flex-direction: row;
+  padding: 3rem;
+}
+.lobby-header nav {
+  align-items: flex-start;
+}
+
+.lobby-nav ul {
+  height: 0;
+}
+
+.display-none {
+  display: none;
+}
+
 @media screen and (max-width: 1120px) {
   header {
     padding: 2rem;
@@ -295,6 +426,12 @@ section:nth-child(2) .text-wrap {
 
   ul li {
     margin: 2rem;
+  }
+
+  .list-design-wrap {
+    position: absolute;
+    top: 128px;
+    left: 100px;
   }
 
   .yellow-block-wrap,
@@ -325,15 +462,17 @@ section:nth-child(2) .text-wrap {
   }
 
   .list-design-wrap {
-    position: absolute;
-    top: 128px;
-    left: 36px;
+    left: 65px;
   }
 }
 @media screen and (max-width: 473px) {
   h1 {
     font-size: 2.8rem;
     letter-spacing: 1.185rem;
+  }
+
+  .list-design-wrap {
+    left: 55px;
   }
 }
 @media screen and (max-width: 1082px) {
@@ -421,8 +560,18 @@ section:nth-child(2) .text-wrap {
     padding: 0;
   }
 }
+@media screen and (max-width: 1254px) {
+  .my-lists p span {
+    margin: 0rem 2rem;
+  }
+
+  .display-none {
+    display: block;
+  }
+}
 #login,
-#sign-up {
+#sign-up,
+#lobby {
   display: none;
 }
 

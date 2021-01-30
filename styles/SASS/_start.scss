@@ -1,5 +1,7 @@
 // ! list design
-
+#start {
+  contain: content;
+}
 .list-design-wrap {
   @include flex(center, center, row);
   height: 100%;
@@ -18,7 +20,7 @@
 }
 .yellow-block-wrap {
   align-items: flex-end;
-  min-width: 55vw;
+  min-width: 60vw;
 }
 .cheker-block-wrap {
   align-items: flex-start;
@@ -35,7 +37,8 @@
 }
 .cheker-block {
   height: 2.25rem;
-  width: 10%;
+  width: 12%;
+  flex: 0 2 22px;
   border-radius: 1rem;
   margin: 1.5rem;
   background-color: $green;

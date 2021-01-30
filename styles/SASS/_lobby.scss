@@ -1,0 +1,70 @@
+#lobby {
+  justify-content: flex-start;
+}
+.lobby-container {
+  height: 100vh;
+  @include flex(center, center, column);
+}
+.top-lobby {
+  @include flex(flex-start, center, row);
+  padding: 5rem;
+  margin: 5rem 0 0 2rem;
+  h2 {
+    font-size: $h2;
+    letter-spacing: 2.7rem;
+    font-family: "Poppins-Reg", sans-serif;
+    flex: 0 1 auto;
+    margin-right: 5rem;
+  }
+  .green-block {
+    height: 3rem;
+    background-color: $green;
+    border-radius: 1rem;
+    flex: 1 2 auto;
+    max-width: 7rem;
+  }
+}
+
+.bottom-lobby {
+  height: 100%;
+  padding: 10rem;
+  h3 {
+    font-size: $h3;
+    color: $yellow;
+    letter-spacing: 2.1rem;
+  }
+  hr {
+    color: $lightYellow;
+    opacity: 0.2;
+    margin-top: 0.2rem;
+    box-shadow: 1px 1px 2px $lightYellow;
+  }
+  .my-lists p {
+    color: $lightYellow;
+    font-size: $nav;
+    font-family: "Poppins-XLight";
+    span {
+      margin: 0 2rem;
+    }
+  }
+  .my-lists {
+    height: 100%;
+    margin-top: 5rem;
+    padding: 5rem;
+  }
+}
+
+.lobby-header {
+  flex-direction: column;
+  flex-direction: row;
+  padding: 3rem;
+  & nav {
+    align-items: flex-start;
+  }
+}
+.lobby-nav ul {
+  height: 0;
+}
+.display-none {
+  display: none;
+}

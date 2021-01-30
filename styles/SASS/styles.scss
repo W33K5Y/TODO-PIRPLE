@@ -6,6 +6,10 @@ $red: #fb7a82;
 $green: #7afb87;
 $black: #191919;
 $titleShadow: 1px 1px 2px $lightYellow;
+$h1: 5.653rem;
+$h2: 3.998rem;
+$h3: 2.827rem;
+$nav: 1.999rem;
 // ! Mixins
 
 @mixin flex($justify, $align, $direction) {
@@ -19,6 +23,7 @@ $titleShadow: 1px 1px 2px $lightYellow;
 @import "start";
 @import "sign-up";
 @import "login";
+@import "lobby";
 
 // ! Media
 // * =================  START ================ * //
@@ -34,6 +39,11 @@ $titleShadow: 1px 1px 2px $lightYellow;
   }
   ul li {
     margin: 2rem;
+  }
+  .list-design-wrap {
+    position: absolute;
+    top: 128px;
+    left: 100px;
   }
   .yellow-block-wrap,
   .cheker-block-wrap {
@@ -59,15 +69,16 @@ $titleShadow: 1px 1px 2px $lightYellow;
     }
   }
   .list-design-wrap {
-    position: absolute;
-    top: 128px;
-    left: 36px;
+    left: 65px;
   }
 }
 @media screen and (max-width: 473px) {
   h1 {
     font-size: 2.8rem;
     letter-spacing: 1.185rem;
+  }
+  .list-design-wrap {
+    left: 55px;
   }
 }
 // * =================  SIGN-UP ================ * //
@@ -150,7 +161,21 @@ $titleShadow: 1px 1px 2px $lightYellow;
     padding: 0;
   }
 }
+
+// * LOBBY
+@media screen and (max-width: 1254px) {
+  .my-lists p {
+    span {
+      margin: 0rem 2rem;
+    }
+  }
+  .display-none {
+    display: block;
+  }
+}
+
 #login,
-#sign-up {
+#sign-up,
+#lobby {
   display: none;
 }

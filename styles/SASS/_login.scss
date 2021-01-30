@@ -22,3 +22,24 @@
     padding: 10rem;
   }
 }
+
+.email-form {
+  position: relative;
+}
+
+#warning {
+  position: absolute;
+  right: 24px;
+  display: inline-block;
+  display: none;
+}
+#error-message {
+  font-size: 1rem;
+  position: absolute;
+  bottom: -24px;
+  right: 0;
+  padding: 2rem;
+  color: #f73e42;
+  letter-spacing: 0.2rem;
+  display: none;
+}
