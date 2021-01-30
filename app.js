@@ -23,7 +23,7 @@ const logoutLobby = document.getElementById("logout-lobby-b");
 // ? this bellow is iterating through each case of the three identicle section h1's 
 //* h1's
 for (const h1 of h1Button) {
-    h1.addEventListener("click",signupLoginNone)
+    h1.addEventListener("click",backToStartPage)
 };
 // *logins
 loginStartB.addEventListener("click", signupStartNoneLoginFlex);
@@ -34,15 +34,15 @@ signUpStartB.addEventListener("click", loginStartNoneSignupFlex);
 signUpSignUpB.addEventListener("click", loginStartNoneSignupFlex);
 signUpLoginB.addEventListener("click", loginStartNoneSignupFlex);
 // * logouts
-logoutLobby.addEventListener("click",signupLoginNone);
+logoutLobby.addEventListener("click",backToStartPage);
 // ! FUNCTIONS FOR LISTNERS 
 // ? creating functions to decide what section gets shown 
-function signupLoginNone(e){
+function backToStartPage(e){
     start.style.display = "flex";
     signUp.style.display = "none";
     login.style.display = "none";
     lobby.style.display = "none";
-  
+    todo.style.display = "none";
 };
 function signupStartNoneLoginFlex(e) {
     login.style.display = "flex";
@@ -61,6 +61,7 @@ function startLoginSignUpNoneLobbyFlex(e) {
     signUp.style.display = "none";
     start.style.display = "none";
     login.style.display = "none";
+    todo.style.display="none";
     errorDisplay("none");
 
 }
@@ -134,7 +135,6 @@ loginPassword.value = "";
 loginEmail.value = "";
 })
 
-
 // ! == lobby INITIAL  ==
 const greenBlock = document.getElementById("green-block");
 greenBlock.addEventListener("click",createNewToDoSection);
@@ -145,7 +145,7 @@ const todoBack = document.getElementById("todo-back-b");
 const todologout = document.getElementById("todo-log-out-b");
 // ! listener on todo nav 
 todoBack.addEventListener("click", startLoginSignUpNoneLobbyFlex);
-todologout.addEventListener("click", signupLoginNone);
+todologout.addEventListener("click", backToStartPage);
 //*====== Variables *======//
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");

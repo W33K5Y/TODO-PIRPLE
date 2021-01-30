@@ -28,6 +28,12 @@
     &:hover {
       background: darken($green, 10%);
     }
+    &:focus {
+      border: solid 2px $blue;
+    }
+    img {
+      pointer-events: none;
+    }
   }
 }
 
