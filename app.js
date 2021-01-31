@@ -219,7 +219,7 @@ const todo = item.parentElement;
 //* Animation
 todo.classList.add("fall");
 removeLocalTodos(todo);
-todo.addEventListener("transitionend", function(){
+todo.addEventListener("transitioned", function(){
 todo.remove();
 });
 }
@@ -333,8 +333,13 @@ const listH1 = document.createElement("h4");
 function addNewTodo() {
 const todoDiv = document.querySelector(".todo-container");
 const todos = document.querySelectorAll(".todo-item");
+const newTodoDivWrap = document.createElement("div");
 todos.forEach(function(todo) {
-createLi(todo);
+  // ! Create LI
+const newTodo = document.createElement('li');
+newTodo.innerText = todo.innerText;
+newTodo.classList.add("todo-saved-item");
+newTodoOl.appendChild(newTodo);
 }); 
 listName.value ? listH1.innerText = listName.value : listH1.innerText = "My List";
 newTodoDivWrap.classList.add("new-todo-div");
@@ -344,17 +349,9 @@ myLists.appendChild(newTodoDivWrap);
 todoReset(todoDiv,startNote);
 startLoginSignUpNoneLobbyFlex();
 }
-
 // todo function to go in above that removes all of whats in the tido-container
 
 function todoReset(div,lobbyDiv) {
   lobbyDiv.remove();
   div.firstElementChild.innerHTML = "";
-}
-function createLi(todo) {
-    // ! Create LI
-const newTodo = document.createElement('li');
-newTodo.innerText = todo.innerText;
-newTodo.classList.add("todo-saved-item");
-newTodoOl.appendChild(newTodo);
 }
