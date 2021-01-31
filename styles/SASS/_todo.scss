@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
   }
   form input,
   form button {
@@ -64,6 +65,7 @@
   .fa-trash,
   .fa-check {
     pointer-events: none;
+    cursor: pointer;
   }
   .completed {
     text-decoration: line-through;
@@ -104,7 +106,7 @@
   .select::after {
     content: "\25BC";
     position: absolute;
-    top: -2px;
+    top: 0px;
     right: 0px;
     padding: 1rem;
     background: $blue;
@@ -117,4 +119,18 @@
     background: white;
     color: $red;
   }
+}
+
+#todo header {
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.todo-nav {
+  order: 1;
+}
+#todo-save {
+  align-items: flex-start;
+  // margin-bottom: -40px;
 }

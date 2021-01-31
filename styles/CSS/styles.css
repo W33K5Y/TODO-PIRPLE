@@ -29,7 +29,6 @@ html {
 body {
   background-color: #191919;
   max-height: 100vh;
-  contain: content;
 }
 
 section {
@@ -134,26 +133,11 @@ input {
   height: 100%;
   width: 100%;
   margin: 0 auto 14rem;
-  padding: 10rem;
-}
-
-.yellow-block-wrap,
-.cheker-block-wrap {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-  flex: 1 2 50vw;
+  padding: 0 0 10rem 0;
 }
 
 .yellow-block-wrap {
-  align-items: flex-end;
   min-width: 60vw;
-}
-
-.cheker-block-wrap {
-  align-items: flex-start;
-  flex-shrink: 2;
 }
 
 .yellow-block {
@@ -167,9 +151,8 @@ input {
 }
 
 .cheker-block {
-  height: 2.25rem;
-  width: 12%;
-  flex: 0 2 22px;
+  height: 1.9rem;
+  width: 3.9rem;
   border-radius: 1rem;
   margin: 1.5rem;
   background-color: #7afb87;
@@ -329,6 +312,15 @@ section:nth-child(2) .text-wrap {
   display: none;
 }
 
+form + p {
+  color: #4f76ff;
+  margin-bottom: 2rem;
+  border: 1px solid #4f76ff;
+  padding: 1.5rem;
+  opacity: 0.7;
+  border-radius: 1rem;
+}
+
 #lobby {
   justify-content: flex-start;
 }
@@ -394,15 +386,15 @@ section:nth-child(2) .text-wrap {
   margin-top: 0.2rem;
   box-shadow: 1px 1px 2px #fff8dc;
 }
-.bottom-lobby .my-lists p {
+.bottom-lobby #my-lists p {
   color: #fff8dc;
   font-size: 1.999rem;
   font-family: "Poppins-XLight";
 }
-.bottom-lobby .my-lists p span {
+.bottom-lobby #my-lists p span {
   margin: 0 2rem;
 }
-.bottom-lobby .my-lists {
+.bottom-lobby #my-lists {
   height: 100%;
   margin-top: 5rem;
   padding: 5rem;
@@ -438,6 +430,7 @@ section:nth-child(2) .text-wrap {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  position: relative;
 }
 #todo form input,
 #todo form button {
@@ -498,6 +491,7 @@ section:nth-child(2) .text-wrap {
 #todo .fa-trash,
 #todo .fa-check {
   pointer-events: none;
+  cursor: pointer;
 }
 #todo .completed {
   text-decoration: line-through;
@@ -532,7 +526,7 @@ section:nth-child(2) .text-wrap {
 #todo .select::after {
   content: "▼";
   position: absolute;
-  top: -2px;
+  top: 0px;
   right: 0px;
   padding: 1rem;
   background: #4f76ff;
@@ -545,15 +539,34 @@ section:nth-child(2) .text-wrap {
   color: #fb7a82;
 }
 
+#todo header {
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.todo-nav {
+  order: 1;
+}
+
+#todo-save {
+  align-items: flex-start;
+}
+
 @media screen and (max-width: 1120px) {
   header {
     padding: 2rem;
     height: 100%;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  header nav {
     flex-direction: column;
   }
 
   nav ul {
-    height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -697,7 +710,7 @@ section:nth-child(2) .text-wrap {
   }
 }
 @media screen and (max-width: 1254px) {
-  .my-lists p span {
+  #my-lists p span {
     margin: 0rem 2rem;
   }
 
@@ -705,13 +718,6 @@ section:nth-child(2) .text-wrap {
     display: block;
   }
 }
-#login,
-#sign-up,
-#lobby,
-#todo {
-  display: none;
-}
-
 @media screen and (max-width: 289px) {
   .todo-button {
     position: absolute;
@@ -722,6 +728,30 @@ section:nth-child(2) .text-wrap {
   body > form:nth-child(2) {
     position: relative;
   }
+}
+@media screen and (max-width: 1120px) {
+  .todo-nav ul {
+    justify-content: center;
+    justify-content: flex-start;
+    height: auto;
+    width: auto;
+  }
+
+  #todo .trash-btn,
+#todo .complete-btn {
+    padding: 1.42rem;
+  }
+}
+@media screen and (max-width: 610px) {
+  .todo-nav {
+    order: 0;
+  }
+}
+#login,
+#sign-up,
+#lobby,
+#start {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

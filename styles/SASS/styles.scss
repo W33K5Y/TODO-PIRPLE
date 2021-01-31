@@ -5,6 +5,7 @@ $blue: #4f76ff;
 $red: #fb7a82;
 $green: #7afb87;
 $black: #191919;
+$error: #f73e42;
 $titleShadow: 1px 1px 2px $lightYellow;
 $h1: 5.653rem;
 $h2: 3.998rem;
@@ -32,10 +33,14 @@ $nav: 1.999rem;
   header {
     padding: 2rem;
     height: 100%;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    nav {
+      flex-direction: column;
+    }
   }
   nav ul {
-    height: 30vh;
     @include flex(center, center, column);
   }
   ul li {
@@ -165,7 +170,7 @@ $nav: 1.999rem;
 
 // * LOBBY
 @media screen and (max-width: 1254px) {
-  .my-lists p {
+  #my-lists p {
     span {
       margin: 0rem 2rem;
     }
@@ -175,12 +180,6 @@ $nav: 1.999rem;
   }
 }
 
-#login,
-#sign-up,
-#lobby,
-#todo {
-  display: none;
-}
 // * TODO
 @media screen and (max-width: 289px) {
   .todo-button {
@@ -191,4 +190,29 @@ $nav: 1.999rem;
   body > form:nth-child(2) {
     position: relative;
   }
+}
+
+@media screen and (max-width: 1120px) {
+  .todo-nav ul {
+    justify-content: center;
+    justify-content: flex-start;
+    height: auto;
+    width: auto;
+  }
+
+  #todo .trash-btn,
+  #todo .complete-btn {
+    padding: 1.42rem;
+  }
+}
+@media screen and (max-width: 610px) {
+  .todo-nav {
+    order: 0;
+  }
+}
+#login,
+#sign-up,
+#lobby,
+#start {
+  display: none;
 }

@@ -62,7 +62,7 @@ function startLoginSignUpNoneLobbyFlex(e) {
     start.style.display = "none";
     login.style.display = "none";
     todo.style.display="none";
-    errorDisplay("none");
+    errorDisplay("none","#4f76ff","1rem");
 
 }
 function createNewToDoSection(e) {
@@ -82,7 +82,7 @@ const userLastName = document.getElementById("userLastName");
 const userEmail = document.getElementById("email");
 const userPassword = document.getElementById("password");
 const signupButton = document.getElementById("submit-sign-up");
-
+const terms = document.getElementById("terms");
 // ? constructor function to gather userinfo 
 function signUpToApp(userFirstName,userLastName,userEmail,userPassword) {
 this.userFirstName = userFirstName;
@@ -90,7 +90,10 @@ this.userLastName = userLastName;
 this.userEmail = userEmail
 this.userPassword = userPassword;
 }
-
+// ! function to display error if inputs are empty 
+function errSubmit(){
+  alert("all fields are required");
+}
 // ? gather userinfo on button click
 signupButton.addEventListener("click", function(e) {
 e.preventDefault();
@@ -98,14 +101,29 @@ e.preventDefault();
   const lastName = userLastName.value;
   const email = userEmail.value;
   const password = userPassword.value;
-  const userInfo = new signUpToApp(firstName,lastName,email,password);
-  localStorage.setItem('userInfo', JSON.stringify(userInfo));
-  startLoginSignUpNoneLobbyFlex();
-  userFirstName.value = "";
-userLastName.value = "";
-userEmail.value = "";
-userPassword.value = "";
+ if (userFirstName.value === "") {errSubmit()
+ } 
+  else if(userLastName.value === "") {
+    errSubmit()
+  } else if (userEmail.value === "") {
+    errSubmit()
+  } else if(userPassword.value === "" ) {
+    errSubmit()
+  } else if(terms.checked === false ){
+    alert("Make sure you agree to terms and conditions")
+  } else {
+    const userInfo = new signUpToApp(firstName,lastName,email,password);
+    localStorage.setItem('userInfo', JSON.stringify(userInfo));
+    startLoginSignUpNoneLobbyFlex();
+    userFirstName.value = "";
+    userLastName.value = "";
+    userEmail.value = "";
+    userPassword.value = "";
+  }
+
+
 });
+
 
 // ! LOGIN SECTION 
 const loginEmail = document.getElementById("loginEmail");
@@ -115,21 +133,27 @@ const getUserData = JSON.parse(localStorage.getItem('userInfo'));
 // * img and error message for incorrect information
 const warningIcon = document.getElementById("warning");
 const errorMessage = document.getElementById("error-message");
+let firstTimeUserMessage = document.querySelector("form + p");
 // ! function to alert Error
-function infoError(warn,error) {
-return function(x) {
-    warn.style.display = x;
-    error.style.display = x; 
+function infoError(el1,el2,el3=null) {
+return function displayAndBorder(x,y,z) {
+    el1.style.display = x;
+    el2.style.display = x; 
+    el3.style.color = y;
+    el3.style.borderColor = y;
+    el3.style.borderRadius = z;
 }
 }
-const errorDisplay = infoError(warningIcon,errorMessage);
-
+const errorDisplay = infoError(warningIcon,errorMessage,firstTimeUserMessage);
+const checkEmail = getUserData.userEmail;
+const checkPassword = getUserData.userPassword;
+// ! LOGIN LISTENER
 loginButton.addEventListener("click", function(e) {
     e.preventDefault();
     // ? retrieve back the object set on storage
-loginPassword.value === getUserData.userPassword &&
-loginEmail.value === getUserData.userEmail ? startLoginSignUpNoneLobbyFlex() :
-errorDisplay("inline-block");
+loginPassword.value === checkPassword &&
+loginEmail.value === checkEmail ? startLoginSignUpNoneLobbyFlex() :
+errorDisplay("inline-block","#f73e42","0px");
 // ? errorDisplay('none') in startLoginSignUpNoneLobbyFlex
 loginPassword.value = "";
 loginEmail.value = "";
@@ -288,3 +312,10 @@ function removeLocalTodos(todo) {
  console.log(todos.splice(todos.indexOf(todoIndex), 1));
  localStorage.setItem("todos", JSON.stringify(todos))
 }
+
+
+// ! Save Button 
+const savebutton = document.getElementById("submit-save");
+const todoDiv = document.getElementById("todo-container");
+const myLists = document.getElementById("myLists");
+const listName = document.getElementById("new-list-name");

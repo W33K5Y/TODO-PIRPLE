@@ -7,25 +7,13 @@
   height: 100%;
   width: 100%;
   margin: 0 auto 14rem;
-  padding: 10rem;
+  padding: 0 0 10rem 0;
 }
 
-.yellow-block-wrap,
-.cheker-block-wrap {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-  flex: 1 2 50vw;
-}
 .yellow-block-wrap {
-  align-items: flex-end;
   min-width: 60vw;
 }
-.cheker-block-wrap {
-  align-items: flex-start;
-  flex-shrink: 2;
-}
+
 .yellow-block {
   width: 90%;
   background-color: $yellow;
@@ -36,9 +24,8 @@
   flex-shrink: 2;
 }
 .cheker-block {
-  height: 2.25rem;
-  width: 12%;
-  flex: 0 2 22px;
+  height: 1.9rem;
+  width: 3.9rem;
   border-radius: 1rem;
   margin: 1.5rem;
   background-color: $green;

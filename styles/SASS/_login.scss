@@ -39,7 +39,16 @@
   bottom: -24px;
   right: 0;
   padding: 2rem;
-  color: #f73e42;
+  color: $error;
   letter-spacing: 0.2rem;
   display: none;
+}
+
+form + p {
+  color: $blue;
+  margin-bottom: 2rem;
+  border: 1px solid $blue;
+  padding: 1.5rem;
+  opacity: 0.7;
+  border-radius: 1rem;
 }

@@ -82,11 +82,16 @@
           </ul>
         </nav>
       </header>
-      <form class="sign-up-form">
+      <form class="sign-up-form" action="index.html">
         <div class="text-wrap">
           <div class="name-form">
             <label for="userFirstName">First Name:</label>
-            <input id="userFirstName" type="text" name="userFirstName" required />
+            <input
+              id="userFirstName"
+              type="text"
+              name="userFirstName"
+              required
+            />
           </div>
           <div class="name-form">
             <label for="userLastName">Last Name:</label>
@@ -102,7 +107,9 @@
           </div>
         </div>
         <div class="submit-container">
-          <button id="submit-sign-up" value="Send" type="submit">SIGN UP</button>
+          <button id="submit-sign-up" value="Send" type="submit">
+            SIGN UP
+          </button>
           <div class="submit-wrap">
             <input type="radio" id="terms" required />
             <label for="terms">I agree to Terms and Conditions</label>
@@ -132,50 +139,58 @@
           <div class="email-form">
             <label for="loginEmail">Email:</label>
             <input id="loginEmail" type="email" required name="email" />
-            <img id="warning"src="./icons/iconmonstr-warning-7.svg" alt="">
-            <p id="error-message">email address or password entered incorectly</p>
+            <img id="warning" src="./icons/iconmonstr-warning-7.svg" alt="" />
+            <p id="error-message">email or password entered incorrectly.</p>
           </div>
           <div class="password-form">
             <label for="loginPassword">Password:</label>
-            <input id="loginPassword" type="password" required name="password" />
+            <input
+              id="loginPassword"
+              type="password"
+              required
+              name="password"
+            />
           </div>
         </div>
         <button id="submit-login" value="Send" type="submit">LOG IN</button>
       </form>
+      <p>! First time 'login' users please refresh page !</p>
     </section>
     <section id="lobby">
       <header class="lobby-header">
-        <h1>
-          TODO's
-        </h1>
+        <h1>TODO's</h1>
         <nav class="lobby-nav">
           <ul>
             <li class="start-li">
-              <a id="logout-lobby-b" href="#logout">LOG-OUT</a>          
+              <a id="logout-lobby-b" href="#logout">LOG-OUT</a>
+            </li>
           </ul>
         </nav>
       </header>
       <div class="looby-container">
         <div class="top-lobby">
-        <h2>Create New List</h2>
-        <div tabindex="0" id="green-block"><img src="./icons/iconmonstr-cursor-31.svg" alt=""></div>
-      </div>
-      <div class="bottom-lobby">
-        <h3>My Lists</h3>
-        <hr>
-        <div class="my-lists">
-          <p>Nothing currently recorded <span>||</span><br class="display-none"> Tap the green icon to begin creating your very own TODO!</p>
+          <h2>Create New List</h2>
+          <div tabindex="0" id="green-block">
+            <img src="./icons/iconmonstr-cursor-31.svg" alt="" />
+          </div>
+        </div>
+        <div class="bottom-lobby">
+          <h3>My Lists</h3>
+          <hr />
+          <div id="my-lists">
+            <p>
+              Nothing currently recorded <span>||</span
+              ><br class="display-none" />
+              Tap the green icon to begin creating your very own TODO!
+            </p>
+          </div>
         </div>
       </div>
-      </div>
-      </div>
     </section>
-       <section id="todo">
-      <header class="header-todo">
-        <h1>
-         TODO
-        </h1>
-        <nav class="nav-todo">
+    <section id="todo">
+      <header id="todo-header" class="header-todo">
+        <h1>TODO</h1>
+        <nav class="todo-nav">
           <ul>
             <li class="todo-li">
               <a id="todo-back-b" href="#todo">BACK</a>
@@ -198,6 +213,10 @@
             <option value="uncompleted">Uncompleted</option>
           </select>
         </div>
+      </form>
+      <form id="todo-save">
+        <input id="new-list-name" type="text" placeholder="List Name:" />
+        <button id="submit-save" value="Send" type="submit">SAVE</button>
       </form>
       <div class="todo-container">
         <ul class="todo-list"></ul>
