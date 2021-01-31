@@ -313,9 +313,48 @@ function removeLocalTodos(todo) {
  localStorage.setItem("todos", JSON.stringify(todos))
 }
 
+// !SAVE BUTTON SECTION / ADDING NEW LISTS 
+
 
 // ! Save Button 
-const savebutton = document.getElementById("submit-save");
-const todoDiv = document.getElementById("todo-container");
-const myLists = document.getElementById("myLists");
+const saveButton = document.getElementById("submit-save");
+const myLists = document.getElementById("my-lists");
+const startNote = document.getElementById("start-note");
 const listName = document.getElementById("new-list-name");
+const myUl = document.getElementById("my-ul-lists");
+
+// ! savebutton listener
+saveButton.addEventListener("click", addNewTodo);
+// ! make new html elements
+const newTodoOl = document.createElement("ol");
+const newTodoLi = document.createElement("li");
+const listH1 = document.createElement("h4");
+// ! =============== function for creating new todo ================================
+function addNewTodo() {
+const todoDiv = document.querySelector(".todo-container");
+const todos = document.querySelectorAll(".todo-item");
+todos.forEach(function(todo) {
+createLi(todo);
+}); 
+listName.value ? listH1.innerText = listName.value : listH1.innerText = "My List";
+newTodoDivWrap.classList.add("new-todo-div");
+newTodoDivWrap.appendChild(listH1);
+newTodoDivWrap.appendChild(newTodoOl);
+myLists.appendChild(newTodoDivWrap);
+todoReset(todoDiv,startNote);
+startLoginSignUpNoneLobbyFlex();
+}
+
+// todo function to go in above that removes all of whats in the tido-container
+
+function todoReset(div,lobbyDiv) {
+  lobbyDiv.remove();
+  div.firstElementChild.innerHTML = "";
+}
+function createLi(todo) {
+    // ! Create LI
+const newTodo = document.createElement('li');
+newTodo.innerText = todo.innerText;
+newTodo.classList.add("todo-saved-item");
+newTodoOl.appendChild(newTodo);
+}
