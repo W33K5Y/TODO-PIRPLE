@@ -26,9 +26,9 @@ for (const h1 of h1Button) {
     h1.addEventListener("click",backToStartPage)
 };
 // *logins
-loginStartB.addEventListener("click", signupStartNoneLoginFlex);
-loginSignUpB.addEventListener("click", signupStartNoneLoginFlex);
-loginLoginB.addEventListener("click", signupStartNoneLoginFlex);
+loginStartB.addEventListener("click", backTologin);
+loginSignUpB.addEventListener("click", backTologin);
+loginLoginB.addEventListener("click", backTologin);
 // *sign ups
 signUpStartB.addEventListener("click", loginStartNoneSignupFlex);
 signUpSignUpB.addEventListener("click", loginStartNoneSignupFlex);
@@ -44,7 +44,7 @@ function backToStartPage(e){
     lobby.style.display = "none";
     todo.style.display = "none";
 };
-function signupStartNoneLoginFlex(e) {
+function backTologin(e) {
     login.style.display = "flex";
     start.style.display = "none";
     signUp.style.display = "none";
@@ -114,11 +114,12 @@ e.preventDefault();
   } else {
     const userInfo = new signUpToApp(firstName,lastName,email,password);
     localStorage.setItem('userInfo', JSON.stringify(userInfo));
-    startLoginSignUpNoneLobbyFlex();
+    backTologin();
     userFirstName.value = "";
     userLastName.value = "";
     userEmail.value = "";
     userPassword.value = "";
+    // window.location.reload();
   }
 
 
@@ -161,7 +162,7 @@ loginEmail.value = "";
 
 // ! == lobby INITIAL  ==
 const greenBlock = document.getElementById("green-block");
-greenBlock.addEventListener("click",createNewToDoSection);
+greenBlock.addEventListener("click",createNewToDoSection,true);
 // !===================== TODO SECTION ===================================//
 
 // * todo nav 
@@ -176,14 +177,13 @@ const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo")
 //*====== Event Listeners *======// 
-document.addEventListener("DOMContentLoaded", getTodos)
+document.addEventListener("DOMContentLoaded", getTodos);
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click",deleteCheck);
 filterOption.addEventListener("click",filterTodo);
 //* ======= Functions *======//
 
 function addTodo(e){
-    //! prevent from submiting the form
   e.preventDefault();
 //! ToDo Div  
  const todoDiv = document.createElement('div');
@@ -219,7 +219,7 @@ const todo = item.parentElement;
 //* Animation
 todo.classList.add("fall");
 removeLocalTodos(todo);
-todo.addEventListener("transitioned", function(){
+todo.addEventListener("transitionend", function(){
 todo.remove();
 });
 }
@@ -324,34 +324,87 @@ const listName = document.getElementById("new-list-name");
 const myUl = document.getElementById("my-ul-lists");
 
 // ! savebutton listener
-saveButton.addEventListener("click", addNewTodo);
-// ! make new html elements
-const newTodoOl = document.createElement("ol");
-const newTodoLi = document.createElement("li");
-const listH1 = document.createElement("h4");
+saveButton.addEventListener("click", addNewTodoList);
+
+
 // ! =============== function for creating new todo ================================
-function addNewTodo() {
-const todoDiv = document.querySelector(".todo-container");
-const todos = document.querySelectorAll(".todo-item");
-const newTodoDivWrap = document.createElement("div");
-todos.forEach(function(todo) {
-  // ! Create LI
-const newTodo = document.createElement('li');
-newTodo.innerText = todo.innerText;
-newTodo.classList.add("todo-saved-item");
-newTodoOl.appendChild(newTodo);
-}); 
-listName.value ? listH1.innerText = listName.value : listH1.innerText = "My List";
-newTodoDivWrap.classList.add("new-todo-div");
-newTodoDivWrap.appendChild(listH1);
-newTodoDivWrap.appendChild(newTodoOl);
-myLists.appendChild(newTodoDivWrap);
-todoReset(todoDiv,startNote);
-startLoginSignUpNoneLobbyFlex();
-}
-// todo function to go in above that removes all of whats in the tido-container
+        function addNewTodoList(e) {
+          e.preventDefault();
+        const todoDiv = document.querySelector(".todo-container");
+        const todos = document.querySelectorAll(".todo-item");
+        const newTodoDiv = document.createElement("div");
+        const newTodoOl = document.createElement("ol");
+        const newTodoLi = document.createElement("li");
+        const listH1 = document.createElement("h4");
+        let todoList = [];
+        // ! Create LI
+        todos.forEach(function(todo) {
+        const newTodo = document.createElement('li');
+        newTodo.innerHTML = todo.innerHTML;
+        newTodo.classList.add("todo-saved-item");
+        newTodoOl.appendChild(newTodo);
+        todoList.push(todo.innerText);
+        }); 
+        listName.value ? listH1.innerHTML = listName.value : listH1.innerHTML = "My List";
+        newTodoDiv.classList.add("new-todo-div");
+        newTodoDiv.appendChild(listH1);
+        newTodoDiv.appendChild(newTodoOl);
+        myLists.appendChild(newTodoDiv);
+        todoReset(todoDiv,startNote);
+        listName.value = "";
+        localStorage.setItem("savedItems",JSON.stringify(todoList));
+        // todo get the title somehow for each list localStorage.setItem("")
+        startLoginSignUpNoneLobbyFlex();
+        addEffectsToDivs();
+        }
 
 function todoReset(div,lobbyDiv) {
   lobbyDiv.remove();
   div.firstElementChild.innerHTML = "";
 }
+
+function addEffectsToDivs(){
+  const newTodoDivs = document.querySelectorAll(".new-todo-div");
+  for(const div of newTodoDivs) {
+     div.classList.add("mouseover");
+     div.addEventListener("click",function(){
+      createNewToDoSection();
+      const todoDiv = document.querySelector(".todo-container");
+        amendList(div); 
+        
+     })
+  }
+
+}
+
+
+ function amendList(div){
+  const todos = document.querySelectorAll(".todo-saved-item");
+  const listName = document.getElementById("new-list-name");
+  const h4 = div.firstElementChild.innerText;
+  todos.forEach(function (todo){
+    //! ToDo Div  
+    const todoDiv = document.createElement('div');
+    todoDiv.classList.add('todo');
+    // ! Create LI
+    const newTodo = document.createElement('li');
+    newTodo.innerText = todo.innerText;
+    newTodo.classList.add("todo-item");
+    todoDiv.appendChild(newTodo); 
+    // ! CHECK MARK BUTTON
+    const completedButton = document.createElement("button");
+    completedButton.innerHTML = `<i class="fas fa-check"></i>`;
+    completedButton.classList.add("complete-btn");
+    todoDiv.appendChild(completedButton);
+     // ! CHECK trash BUTTON
+     const trashButton = document.createElement("button");
+     trashButton.innerHTML = `<i class="fas fa-trash"></i>`;
+     trashButton.classList.add("trash-btn");
+     todoDiv.appendChild(trashButton);
+    //! APPEND TO LIST
+    todoList.appendChild(todoDiv);
+    }) 
+    listName.setAttribute(`placeholder`,`${h4}`);
+    div.remove();
+}
+
