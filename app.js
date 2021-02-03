@@ -215,7 +215,6 @@ todoInput.value = "";
 function deleteCheck(e) {
 const item = e.target;
 // ! DELETE TODO
-console.log(item)
 if(item.classList[0] === "trash-btn") {
 const todo = item.parentElement;
 //* Animation
@@ -319,7 +318,7 @@ let countListClasses = [];
 // saveButton.addEventListener("click", addNewTodoList);
 saveButton.addEventListener("click", (e) => {
   let listStr = listName.value;
-  console.log(listStr.replace(/\s/g, ''));
+  listStr.replace(/\s/g, '');
   countListClasses.push(listStr);
   const yourArrayWithoutDuplicates = [...new Set(countListClasses)]
   let duplicates = [...countListClasses];
@@ -336,7 +335,7 @@ saveButton.addEventListener("click", (e) => {
   } else {
     addNewTodoList(e);
   }
-  console.log(duplicates) //[ 1, 5 ]
+  // console.log(duplicates) //[ 1, 5 ]
 });
 
 // ! =============== function for creating new todo ================================
@@ -391,8 +390,15 @@ function addEffectsToDivs(){
      div.classList.add("mouseover");
      div.addEventListener("click",function(e){
       createNewToDoSection();
+      let thisClass = e.target.firstElementChild.classList;
+      let tempArr =  countListClasses.filter((classes) => {
+          // thisClass === classes;
+          return classes;
+      });
+      tempArr.pop();
+      countListClasses = tempArr;
       const todoDiv = document.querySelector(".todo-container");
-  amendList(div);
+       amendList(div);
      })
   }
 
@@ -446,8 +452,4 @@ function checkListNameOriginality(e,listName,fn=null) {
   
 }
 
-
-function sayYes() {
-  console.log("yes")
-}
 
