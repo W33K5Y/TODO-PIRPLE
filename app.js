@@ -214,6 +214,7 @@ todoInput.value = "";
 function deleteCheck(e) {
 const item = e.target;
 // ! DELETE TODO
+console.log(item)
 if(item.classList[0] === "trash-btn") {
 const todo = item.parentElement;
 //* Animation
@@ -290,18 +291,18 @@ function filterTodo(e) {
 // })
 // }
 
-// function removeLocalTodos(todo) {
-//   // !CHECK----Hey do i already have something in storage?
-//   let todos;
-//   if(localStorage.getItem("todos") === null) {
-//     todos = [];
-//   } else {
-//     todos = JSON.parse(localStorage.getItem("todos"));
-//   }
-//  const todoIndex = todo.children[0].innerText;
-//  console.log(todos.splice(todos.indexOf(todoIndex), 1));
-//  localStorage.setItem("todos", JSON.stringify(todos))
-// }
+function removeLocalTodos(todo) {
+  // !CHECK----Hey do i already have something in storage?
+  let todos;
+  if(localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+ const todoIndex = todo.children[0].innerText;
+ console.log(todos.splice(todos.indexOf(todoIndex), 1));
+ localStorage.setItem("todos", JSON.stringify(todos))
+}
 
 // !SAVE BUTTON SECTION / ADDING NEW LISTS 
 
@@ -328,26 +329,34 @@ saveButton.addEventListener("click", addNewTodoList);
         const listH1 = document.createElement("h4");
         let todoList = [];
         // ! Create LI
-        todos.forEach(function(todo) {
-          const newTodo = document.createElement('li');
-        newTodo.innerHTML = todo.innerHTML;
-        newTodo.classList.add("todo-saved-item");
-        newTodo.classList += ` ${listName.value.replace(/\s/g, "-")}`; 
-        newTodoOl.appendChild(newTodo);
-        todoList.push(todo.innerText);
-        }); 
-        listName.value ? listH1.innerHTML = listName.value : listH1.innerHTML = "My List";
-        newTodoDiv.classList.add("new-todo-div");
-        newTodoDiv.appendChild(listH1);
-        listH1.classList += `${listName.value.replace(/\s/g, "-")}`;
-        listName.value = "";
-        newTodoDiv.appendChild(newTodoOl);
-        myLists.appendChild(newTodoDiv);
-        todoReset(todoDiv,startNote);
-        localStorage.setItem("savedItems",JSON.stringify(todoList));
-        // todo get the title somehow for each list localStorage.setItem("")
-        startLoginSignUpNoneLobbyFlex();
-        addEffectsToDivs();
+        if(listName.value === "") {
+          alert("List Name is blank")
+        } else {
+          todos.forEach(function(todo) {
+            const newTodo = document.createElement('li');
+          newTodo.innerHTML = todo.innerHTML;
+          newTodo.classList.add("todo-saved-item");
+          newTodo.classList += ` ${listName.value.replace(/\s/g, "-")}`; 
+          newTodoOl.appendChild(newTodo);
+          todoList.push(todo.innerText);
+          }); 
+          listName.value ? listH1.innerHTML = `${listName.value} <img class="cursor-black" src="./icons/iconmonstr-cursor-black.svg" alt=""/>` : listH1.innerHTML = "My List";
+          newTodoDiv.classList.add("new-todo-div");
+          newTodoDiv.appendChild(listH1);
+          // ? this replaces all spaces when transfering the class value into the title value
+          listH1.classList += `${listName.value.replace(/\s/g, "-")}`;
+          let checker = listName.value;
+          listName.value = "";
+          newTodoDiv.appendChild(newTodoOl);
+          myLists.appendChild(newTodoDiv);
+          todoReset(todoDiv,startNote);
+          localStorage.setItem("savedItems",JSON.stringify(todoList));
+          // todo get the title somehow for each list localStorage.setItem("")
+          startLoginSignUpNoneLobbyFlex();
+          addEffectsToDivs();
+          checkListNameOriginality(e,checker);
+        }
+        
       }
 
 function todoReset(div,lobbyDiv) {
@@ -399,6 +408,9 @@ function addEffectsToDivs(){
          todoDiv.appendChild(trashButton);
         //! APPEND TO LIST
         todoList.appendChild(todoDiv);
+        todo.addEventListener("transitionend", function(){
+          todo.remove();
+          });
     }
     
   }
@@ -407,3 +419,17 @@ function addEffectsToDivs(){
     div.remove();
 }
 
+function checkListNameOriginality(e,listName,fn=null) {
+  const myListsDivs = myLists.getElementsByTagName('DIV');
+console.log(e.target.parentElement.firstElementChild)
+for (let i = 0; i < myListsDivs.length; i+=1) {
+  let list = myListsDivs[i].firstElementChild;
+  console.log(listName)
+  // list.firstElementChild.classList.contains(listName[i]) ? console.log(list) : console.log("nos")
+}
+}
+
+
+function sayYes() {
+  console.log("yes")
+}

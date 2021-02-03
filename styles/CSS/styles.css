@@ -349,7 +349,9 @@ form + p {
   margin-right: 5rem;
 }
 .top-lobby #green-block {
-  height: 3rem;
+  border: none;
+  height: 4rem;
+  min-width: 8rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -369,6 +371,21 @@ form + p {
 }
 .top-lobby #green-block img {
   pointer-events: none;
+}
+
+#save-myTodo-lists {
+  border: none;
+  height: 4rem;
+  min-width: 8rem;
+  background-color: #3662ff;
+  border-radius: 1rem;
+  color: #fff8dc;
+  font-family: "Poppins-Reg";
+  text-shadow: 1px 1px 2px #191919;
+  margin-left: 1rem;
+  font-size: 1.7rem;
+  letter-spacing: 0.35rem;
+  cursor: pointer;
 }
 
 .bottom-lobby {
@@ -588,8 +605,12 @@ h4::after {
   content: ":";
 }
 
+.cursor-black {
+  transform: rotate(180deg) translateY(-20%);
+}
+
 .mouseover:hover {
-  transform: scale(1.5);
+  transform: scale(1.35);
   cursor: pointer;
   background: #fff3c3;
 }
@@ -756,6 +777,20 @@ h4::after {
 
   .display-none {
     display: block;
+  }
+}
+@media screen and (max-width: 790px) {
+  .top-lobby {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+  .top-lobby button {
+    margin: 1rem;
+  }
+  .top-lobby h2 {
+    margin: 0;
   }
 }
 @media screen and (max-width: 289px) {

@@ -180,7 +180,17 @@ $nav: 1.999rem;
     display: block;
   }
 }
-
+@media screen and (max-width: 790px) {
+  .top-lobby {
+    @include flex(flex-start, center, column);
+    button {
+      margin: 1rem;
+    }
+    h2 {
+      margin: 0;
+    }
+  }
+}
 // * TODO
 @media screen and (max-width: 289px) {
   .todo-button {

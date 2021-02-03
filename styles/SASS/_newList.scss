@@ -26,9 +26,11 @@ h4 {
     content: ":";
   }
 }
-
+.cursor-black {
+  transform: rotate(180deg) translateY(-20%);
+}
 .mouseover:hover {
-  transform: scale(1.5);
+  transform: scale(1.35);
   cursor: pointer;
   background: darken($lightYellow, 5%);
 }
