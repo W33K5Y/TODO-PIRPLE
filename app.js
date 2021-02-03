@@ -390,9 +390,7 @@ function addEffectsToDivs(){
      div.classList.add("mouseover");
      div.addEventListener("click",function(e){
       createNewToDoSection();
-      let thisClass = e.target.firstElementChild.classList;
       let tempArr =  countListClasses.filter((classes) => {
-          // thisClass === classes;
           return classes;
       });
       tempArr.pop();
