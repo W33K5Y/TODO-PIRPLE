@@ -71,6 +71,7 @@ function createNewToDoSection(e) {
     start.style.display = "none";
     login.style.display = "none";
     lobby.style.display = "none";
+    listName.value = "";
 }
 
 // todo creae a function that listens out for the users log in data and saves such data in local storage
@@ -313,10 +314,28 @@ const myLists = document.getElementById("my-lists");
 const startNote = document.getElementById("start-note");
 const listName = document.getElementById("new-list-name");
 const myUl = document.getElementById("my-ul-lists");
-
+let countListClasses = [];
 // ! savebutton listener
-saveButton.addEventListener("click", addNewTodoList);
-
+// saveButton.addEventListener("click", addNewTodoList);
+saveButton.addEventListener("click", (e) => {
+  countListClasses.push(listName.value)
+  const yourArrayWithoutDuplicates = [...new Set(countListClasses)]
+  let duplicates = [...countListClasses];
+   yourArrayWithoutDuplicates.forEach((listItem) => {
+    const i = duplicates.indexOf(listItem)
+    duplicates = duplicates
+      .slice(0, i)
+      .concat(duplicates.slice(i + 1, duplicates.length))
+  })
+  if(duplicates.length > 0) {
+    alert("This List Name already exists")
+   duplicates.pop();
+   countListClasses.pop();
+  } else {
+    addNewTodoList(e);
+  }
+  console.log(duplicates) //[ 1, 5 ]
+});
 
 // ! =============== function for creating new todo ================================
         function addNewTodoList(e) {
@@ -328,6 +347,7 @@ saveButton.addEventListener("click", addNewTodoList);
         const newTodoLi = document.createElement("li");
         const listH1 = document.createElement("h4");
         let todoList = [];
+
         // ! Create LI
         if(listName.value === "") {
           alert("List Name is blank")
@@ -346,7 +366,6 @@ saveButton.addEventListener("click", addNewTodoList);
           // ? this replaces all spaces when transfering the class value into the title value
           listH1.classList += `${listName.value.replace(/\s/g, "-")}`;
           let checker = listName.value;
-          listName.value = "";
           newTodoDiv.appendChild(newTodoOl);
           myLists.appendChild(newTodoDiv);
           todoReset(todoDiv,startNote);
@@ -421,15 +440,12 @@ function addEffectsToDivs(){
 
 function checkListNameOriginality(e,listName,fn=null) {
   const myListsDivs = myLists.getElementsByTagName('DIV');
-console.log(e.target.parentElement.firstElementChild)
-for (let i = 0; i < myListsDivs.length; i+=1) {
-  let list = myListsDivs[i].firstElementChild;
-  console.log(listName)
-  // list.firstElementChild.classList.contains(listName[i]) ? console.log(list) : console.log("nos")
-}
+  
+  
 }
 
 
 function sayYes() {
   console.log("yes")
 }
+
