@@ -318,7 +318,9 @@ let countListClasses = [];
 // ! savebutton listener
 // saveButton.addEventListener("click", addNewTodoList);
 saveButton.addEventListener("click", (e) => {
-  countListClasses.push(listName.value)
+  let listStr = listName.value;
+  console.log(listStr.replace(/\s/g, ''));
+  countListClasses.push(listStr);
   const yourArrayWithoutDuplicates = [...new Set(countListClasses)]
   let duplicates = [...countListClasses];
    yourArrayWithoutDuplicates.forEach((listItem) => {
