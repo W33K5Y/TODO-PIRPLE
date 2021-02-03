@@ -364,10 +364,13 @@ form + p {
   box-shadow: 1px 1px 2px #48fa5a, 2px 2px 2px -6px #000;
 }
 .top-lobby #green-block:hover {
-  background: #48fa5a;
+  background: #17f82e;
 }
 .top-lobby #green-block:focus {
   border: solid 2px #4f76ff;
+}
+.top-lobby #green-block:active {
+  background: #8bfc97;
 }
 .top-lobby #green-block img {
   pointer-events: none;
@@ -386,6 +389,16 @@ form + p {
   font-size: 1.7rem;
   letter-spacing: 0.35rem;
   cursor: pointer;
+}
+#save-myTodo-lists:hover {
+  background-color: #1c4eff;
+  color: #ffeea9;
+  text-shadow: 1px 1px 2px black;
+}
+#save-myTodo-lists:active {
+  background-color: #b5fdbd;
+  color: white;
+  text-shadow: 1px 1px 2px #595959;
 }
 
 .bottom-lobby {
@@ -824,8 +837,8 @@ h4::after {
 }
 #login,
 #sign-up,
-#lobby,
-#todo {
+#todo,
+#lobby {
   display: none;
 }
 

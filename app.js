@@ -451,3 +451,56 @@ function checkListNameOriginality(e,listName,fn=null) {
 }
 
 
+const saveListButton = document.getElementById("save-myTodo-lists");
+
+saveListButton.addEventListener("click", saveAllMadeLists);
+document.addEventListener("DOMContentLoaded",getInnerHTML)
+
+function saveAllMadeLists(e){
+  const myListChildren = myLists.children;
+  let groupHTML = [];
+  for(let i = 0; i < myListChildren.length; i++) {
+    console.log(i)
+    groupHTML.push(myListChildren[i].innerHTML);
+  }
+   console.log(groupHTML);
+   localStorage.setItem("savedLists", JSON.stringify(groupHTML));
+   console.log('this is local storage' + localStorage.getItem("savedLists"))
+   console.log(localStorage.getItem("savedLists"));
+}
+function getInnerHTML() {
+  let randomArr = [];
+  const startNote = document.getElementById("start-note");
+  if(localStorage.getItem("savedLists") === null) {
+    startNote.style.display = "initial";
+
+  }
+  else {
+
+    let divInners = JSON.parse(localStorage.getItem("savedLists"));
+    for(let i = 0; i < divInners.length; i++){
+      const divs = document.createElement('div');
+      const myListDiv = document.getElementById("my-lists");
+      divs.classList = "new-todo-div mouseover";
+      divs.innerHTML = divInners[i];
+      myLists.appendChild(divs);
+      startNote.style.display = "none";
+      
+      const newTodoDivs = document.querySelectorAll(".new-todo-div");
+for(const div of newTodoDivs) {
+   div.classList.add("mouseover");
+   div.addEventListener("click",function(e){
+    createNewToDoSection();
+    let tempArr =  countListClasses.filter((classes) => {
+        return classes;
+    });
+    tempArr.pop();
+    countListClasses = tempArr;
+    const todoDiv = document.querySelector(".todo-container");
+     amendList(div);
+   })
+  };
+  }
+  }
+}
+

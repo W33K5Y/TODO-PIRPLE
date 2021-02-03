@@ -28,10 +28,13 @@
     cursor: pointer;
     box-shadow: 1px 1px 2px darken($green, 10%), 2px 2px 2px -6px #000;
     &:hover {
-      background: darken($green, 10%);
+      background: darken($green, 20%);
     }
     &:focus {
       border: solid 2px $blue;
+    }
+    &:active {
+      background: lighten($green, 3.5%);
     }
     img {
       pointer-events: none;
@@ -51,6 +54,16 @@
   font-size: 1.7rem;
   letter-spacing: 0.35rem;
   cursor: pointer;
+  &:hover {
+    background-color: darken($blue, 10%);
+    color: darken($lightYellow, 10%);
+    text-shadow: 1px 1px 2px darken($black, 10%);
+  }
+  &:active {
+    background-color: lighten($green, 12%);
+    color: lighten($lightYellow, 25%);
+    text-shadow: 1px 1px 2px lighten($black, 25%);
+  }
 }
 
 .bottom-lobby {
