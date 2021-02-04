@@ -18,6 +18,8 @@ const loginLoginB = document.getElementById("login-login-b")
 const signUpLoginB= document.getElementById("sign-up-login-b");
 // * lobby
 const logoutLobby = document.getElementById("logout-lobby-b");
+// * account 
+const account = document.getElementById("account-settings");
 
 // ! SETTING LISTENERS on all clickable nav el's 
 // ? this bellow is iterating through each case of the three identicle section h1's 
@@ -43,18 +45,24 @@ function backToStartPage(e){
     login.style.display = "none";
     lobby.style.display = "none";
     todo.style.display = "none";
+    account.style.display = "none";
+
 };
 function backTologin(e) {
     login.style.display = "flex";
     start.style.display = "none";
     signUp.style.display = "none";
     lobby.style.display = "none";
+    account.style.display = "none";
+
 }
 function loginStartNoneSignupFlex(e) {
     signUp.style.display = "flex";
     start.style.display = "none";
     login.style.display = "none";
     lobby.style.display = "none";
+    account.style.display = "none";
+
 }
 function startLoginSignUpNoneLobbyFlex(e) {
     lobby.style.display = "flex";
@@ -62,6 +70,7 @@ function startLoginSignUpNoneLobbyFlex(e) {
     start.style.display = "none";
     login.style.display = "none";
     todo.style.display="none";
+    account.style.display = "none";
     errorDisplay("none","#4f76ff","1rem");
 
 }
@@ -71,9 +80,20 @@ function createNewToDoSection(e) {
     start.style.display = "none";
     login.style.display = "none";
     lobby.style.display = "none";
+    account.style.display = "none";
     listName.value = "";
 }
+function toAcountSettings(e) {
+  account.style.display = "flex";
+  todo.style.display = "none";
+  signUp.style.display = "none";
+  start.style.display = "none";
+  login.style.display = "none";
+  lobby.style.display = "none";
+setAccountDetails();
 
+  listName.value = "";
+}
 // todo creae a function that listens out for the users log in data and saves such data in local storage
 
 // ! SIGN UP SECTION 
@@ -487,7 +507,7 @@ function getInnerHTML() {
       startNote.style.display = "none";
       
       const newTodoDivs = document.querySelectorAll(".new-todo-div");
-for(const div of newTodoDivs) {
+    for(const div of newTodoDivs) {
    div.classList.add("mouseover");
    div.addEventListener("click",function(e){
     createNewToDoSection();
@@ -504,3 +524,41 @@ for(const div of newTodoDivs) {
   }
 }
 
+
+// ! listener for the account settings button 
+const accountSettingB = document.getElementById("lobby-account-settings-b");
+const backButton = document.getElementById("account-back-b");
+const logoutAccount = document.getElementById("account-logout-b");
+accountSettingB.addEventListener("click",toAcountSettings);
+backButton.addEventListener("click",startLoginSignUpNoneLobbyFlex);
+logoutAccount.addEventListener("click",backToStartPage)
+
+const accountUserFirstName = document.getElementById("account-userFirstName");
+const accountUserLastName = document.getElementById("account-userLastName");
+const accountUserEmail = document.getElementById("account-email");
+const accountUserPassword = document.getElementById("account-password");
+const saveAccountButton = document.getElementById("account-submit-sign-up");
+
+// ! save listener
+saveAccountButton.addEventListener("click", saveAccountDetails);
+function setAccountDetails() {
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  let firstName = userInfo.userFirstName;
+  let lastName = userInfo.userLastName;
+  let userEmail = userInfo.userEmail;
+  let userPassword = userInfo.userPassword;
+  accountUserFirstName.value = firstName;
+  accountUserLastName.value = lastName;
+  accountUserEmail.value = userEmail;
+  accountUserPassword.value = userPassword;
+}
+function saveAccountDetails(e) {
+  e.preventDefault();
+  const firstName =  accountUserFirstName.value;
+  const lastName = accountUserLastName.value;
+  const email = accountUserEmail.value;
+  const password = accountUserPassword.value;
+  const userInfo = new signUpToApp(firstName,lastName,email,password);
+  localStorage.setItem('userInfo', JSON.stringify(userInfo));
+  console.log(localStorage.getItem('userInfo'));
+}

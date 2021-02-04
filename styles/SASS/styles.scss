@@ -27,6 +27,7 @@ $nav: 1.999rem;
 @import "lobby";
 @import "todo";
 @import "newList";
+@import "account-settings";
 
 // ! Media
 // * =================  START ================ * //
@@ -221,9 +222,11 @@ $nav: 1.999rem;
     order: 0;
   }
 }
+
 #login,
 #sign-up,
 #todo,
+#account-settings,
 #lobby {
   display: none;
 }

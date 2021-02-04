@@ -104,8 +104,20 @@
   }
 }
 .lobby-nav ul {
-  height: 0;
+  height: 100%;
 }
 .display-none {
   display: none;
+}
+.lobby-header > h1:nth-child(1) {
+  flex: 2 1 auto;
+}
+.fa-undo-alt::before,
+.fa-sign-out-alt::before {
+  padding: 1rem;
+  padding-left: 1.8rem;
+}
+.fa-cogs::before {
+  padding: 1rem;
+  padding-left: 1.7rem;
 }

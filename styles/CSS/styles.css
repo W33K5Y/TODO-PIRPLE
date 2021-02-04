@@ -121,6 +121,10 @@ input {
   color: #f6d862;
 }
 
+.lobby-nav > ul:nth-child(1) {
+  flex-direction: row;
+}
+
 #start {
   contain: content;
 }
@@ -440,11 +444,26 @@ form + p {
 }
 
 .lobby-nav ul {
-  height: 0;
+  height: 100%;
 }
 
 .display-none {
   display: none;
+}
+
+.lobby-header > h1:nth-child(1) {
+  flex: 2 1 auto;
+}
+
+.fa-undo-alt::before,
+.fa-sign-out-alt::before {
+  padding: 1rem;
+  padding-left: 1.8rem;
+}
+
+.fa-cogs::before {
+  padding: 1rem;
+  padding-left: 1.7rem;
 }
 
 #todo {
@@ -628,6 +647,81 @@ h4::after {
   background: #fff3c3;
 }
 
+#account-settings {
+  display: flex;
+}
+
+#account-terms {
+  height: 1.5rem;
+}
+
+#account-settings {
+  flex-direction: column;
+}
+
+section {
+  justify-content: space-between;
+  align-content: center;
+}
+
+#account-submit-sign-up {
+  height: 10rem;
+  width: 20rem;
+  height: 5rem;
+  width: 10rem;
+}
+
+#account-settings > form:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  align-items: flex-end;
+}
+
+#account-settings > form:nth-child(2) {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#account-settings > form:nth-child(2) > div:nth-child(2) {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+#account-submit-sign-up {
+  height: 10rem;
+  width: 20rem;
+  height: 6rem;
+  width: 10rem;
+}
+
+#account-form label {
+  font-size: 1.999rem;
+  color: #f9e492;
+}
+
+#account-form > div:nth-child(2) {
+  padding-top: 0.2rem;
+}
+
+#account-ul {
+  flex-direction: row;
+}
+
+@media screen and (max-width: 868px) {
+  #account-settings > header:nth-child(1) > nav:nth-child(2) > ul:nth-child(1) {
+    flex-direction: revert;
+  }
+
+  #account-form > div:nth-child(1) {
+    margin: 0 auto;
+  }
+
+  #account-form {
+    margin: 0 auto;
+  }
+}
 @media screen and (max-width: 1120px) {
   header {
     padding: 2rem;
@@ -838,6 +932,7 @@ h4::after {
 #login,
 #sign-up,
 #todo,
+#account-settings,
 #lobby {
   display: none;
 }

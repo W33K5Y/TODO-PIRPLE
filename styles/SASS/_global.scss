@@ -103,3 +103,6 @@ input {
   background-color: darken($blue, 10%);
   color: darken($yellow, 10%);
 }
+.lobby-nav > ul:nth-child(1) {
+  flex-direction: row;
+}
